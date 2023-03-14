@@ -1,6 +1,7 @@
 # Apollo-Erp
 
 Python version = 3.11.1
+
 --> Activate virtual environment cd env/Scripts/activate
 
 --> Install Django using CMD - pip install django
