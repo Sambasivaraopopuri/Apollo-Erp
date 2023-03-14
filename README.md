@@ -12,12 +12,12 @@ I created one Admin, one evaluator
 Admin create and mange the vender profiles and also add region, Items.
 Evaluator evaluate the vender performance. Evaluator add ratting of vender and feedback/Comments
 
-#############  ADMIN  ###########
+#############  ADMIN  #########################################################################
 
 Login details 
   User name= admin
   Password= admin
- ######### Evaluator #########
+ ######### Evaluator ########################################################################
  
 Login details 
   User name= evaluator
