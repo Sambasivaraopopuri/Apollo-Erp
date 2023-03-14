@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{user}}</a>
+      
+      <a href="logout" class="" style="text-align: left;">Logout</a>
+    </div>
+  </nav>
+
+
+  <div class="row">
+    <div class="col-md-4">
+      
+    </div>
+    <div class="col-md-4 form-control">
+      <form action="" method="post"> {% csrf_token %}
+      <label for="phone">Name</label>
+      <input type="text" name="name" id="pincode" class="form-control" >
+      <br>
+      <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+    
+    </div>
+    <div class="col-md-4">
+      
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">{{request.user}}</a>
+        <a href="logout" class="btn btn-primary" style="text-align: left;">logout</a>
+    </div>
+</nav>
+
+{%if vender%}
+<div class="row">
+    <div class="col-md-4">
+      
+    </div>
+    <div class="col-md-4 form-control">
+      <h3 style="text-align: center;">{{vender.first_name}}.{{vender.last_name}}</h3>
+      <form action="" method="post"> {% csrf_token %}
+      <label for="frist_name"></label>
+      <!-- <input type="text" name="evaluator" id="evaluator" class="form-control" > -->
+      <label for="last_name">Ratting</label>&nbsp;&nbsp;
+      <input type="radio" name="rating" value=1>&nbsp;&nbsp;1 &nbsp; &nbsp;
+      <input type="radio" name="rating" value=2>&nbsp;&nbsp;2&nbsp;&nbsp;
+      <input type="radio" name="rating" value=3>&nbsp;&nbsp;3&nbsp;&nbsp;
+      <input type="radio" name="rating" value=4>&nbsp;&nbsp;4&nbsp;&nbsp;
+      <input type="radio" name="rating" value=5>&nbsp;&nbsp;5<br>
+      <label for="phone">Comments</label>
+      <input type="text" name="comments" id="comments" class="form-control" >
+      <label for="addres">Feedback</label>
+      <input type="text" name="test" id="feedback " class="form-control"> 
+      <br>
+      <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+    
+    </div>
+    <div class="col-md-4">
+      
+    </div>
+</div>
+{%endif%}
+{%endblock%}

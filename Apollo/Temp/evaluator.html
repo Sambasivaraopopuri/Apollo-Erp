@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{user}}</a>
+      {%if user.is_staff%}
+    <a href="add_vender" class="btn btn-primary" style="text-align: left;">Add Vendor</a>
+    <a href="add_item" class="btn btn-primary" style="text-align: left;">Add Item</a>
+    <a href="add_region" class="btn btn-primary" style="text-align: left;">Add Region</a>
+      {%endif%}
+    <a href="logout" class="" style="text-align: left;">Logout</a>
+  </div>
+</nav>
+
+<table style="margin-left: 10px; text-align: center ;" class="container">
+  <thead>
+      <th>
+          <tr style="margin: 10px;">
+              <td><b>Vender Frist Name</b></td>
+              
+              <td><b>Region Code</b></td>
+              <td><b> Item </b></td>
+              <td ><b>Comments/Feedback</b></td>
+              
+          </tr>
+      </th>
+  </thead>
+  <tbody >
+      {%for i in vender%}
+      <tr>
+          <td>{{i.first_name}} . {{i.last_name}}</td>
+        
+          <td>{{i.region_code.pincode}}</td>
+          <td>{{i.item.name}}</td>
+          {%for j in vender_review%}
+          {% if j.vender.id == i.id%}
+          {%if j.rating is none%}
+          <td><a href="comment/{{i.id}}" class='fa fa-edit'></a></td>
+          {%else%}
+          <td>{{j.rating}}/ &nbsp;5</td>
+          {%endif%}
+          {%endif%}
+           {%endfor%}
+      </tr>{%endfor%}
+      
+  </tbody>
+</table>
+
+  
+{%endblock%}
+

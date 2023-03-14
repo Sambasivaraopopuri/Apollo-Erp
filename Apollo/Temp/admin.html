@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{user}}</a>
+      {%if user.is_staff%}
+    <a href="add_vender" class="btn btn-primary" style="text-align: left;">Add Vendor</a>
+    <a href="add_item" class="btn btn-primary" style="text-align: left;">Add Item</a>
+    <a href="add_region" class="btn btn-primary" style="text-align: left;">Add Region</a>
+      {%endif%}
+    <a href="logout" class="" style="text-align: left;">Logout</a>
+  </div>
+</nav>
+
+<table style="margin-left: 10px; text-align: center ;" class="container">
+  <thead>
+      <th>
+          <tr style="margin: 10px;">
+              <td><b>Vender Frist Name</b></td>
+              <td><b> Last Name</b></td>
+              <td><b> Mobile Number</b></td>
+              <td><b>Adders</b></td>
+              <td><b>Date</b></td>
+              <td><b>Region Code</b></td>
+              <td><b> Item </b></td>
+              <td ><b>Edit</b></td>
+              <td><b>Delete</b></td>
+              
+          </tr>
+      </th>
+  </thead>
+  <tbody >
+      {%for i in vender%}
+      <tr>
+          <td>{{i.first_name}}</td>
+          <td>{{i.last_name}}</td>
+          <td>{{i.phone}}</td>
+          <td>{{i.adders}}</td>
+          <td>{{i.date}}</td>
+          <td>{{i.region_code.pincode}}</td>
+          <td>{{i.item.name}}</td>
+          <td><a href="vender/{{i.id}}" class='fa fa-edit'></a></td>
+          <td><a href="delete/{{i.id}}" class='fa fa-remove'></a></td>  
+      </tr>{%endfor%}
+      
+  </tbody>
+</table>
+{%endblock%}

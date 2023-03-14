@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{user}}</a>
+      <a href="logout" class="btn btn-primary" style="text-align: left;">logout</a>
+  </div>
+</nav>
+{% if data %}
+<div class="row">
+  <div class="col-md-4">
+    
+  </div>
+  <div class="col-md-4 form-control">
+    <h3 style="text-align: center;">Vendor</h3>
+    <form action="" method="post">{%csrf_token%}
+    <label for="frist_name">Frist Name</label>
+    <input type="text" name="fristname" id="frist_name" class="form-control" value="{{data.first_name}}">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="lastname" id="last_name" class="form-control" value="{{data.last_name}}">
+    <label for="phone">Mobile Number</label>
+    <input type="text" name="phone" id="phone" class="form-control" value="{{data.phone}}">
+    <label for="addres">Address</label>
+    
+    <textarea name="user_addres" id="addres" cols="10" rows="3" class="form-control">{{data.adders}}</textarea>
+    <label for="region">Region</label>
+    <select name="region" id="region" class="form-control">
+      <option >Select value</option>
+      {%for i in regions%}
+      <option value="{{i.id}}" selected="{%if '{{data.region_code.id}}' == i.region_code%} select{%endif%}">{{i.pincode}}</option>
+      
+      {%endfor%}
+     
+    </select>
+    <label for="item">Items</label>
+    <select name="items" id="item" class="form-control">
+      <option >Select item</option>
+      {%for i in item%}
+      <option value="{{i.id}}" selected="{%if '{{data.item.id}}' == i.item%} select{%endif%}">{{i.name}}</option>
+      
+      {%endfor%}
+      
+    </select>
+    <br>
+    <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  
+  </div>
+  <div class="col-md-4">
+    
+  </div>
+</div>
+{%else%}
+<div class="row">
+<div class="col-md-4">
+  
+</div>
+<div class="col-md-4 form-control">
+  <h3 style="text-align: center;">Vendor</h3>
+  <form action="" method="post">{%csrf_token%}
+  <label for="frist_name">Frist Name</label>
+  <input type="text" name="fristname" id="frist_name" class="form-control">
+  <label for="last_name">Last Name</label>
+  <input type="text" name="lastname" id="last_name" class="form-control">
+  <label for="phone">Mobile Number</label>
+  <input type="text" name="phone" id="phone" class="form-control">
+  <label for="addres">Address</label>
+  <textarea name="user_addres" id="addres" cols="10" rows="3" class="form-control"></textarea>
+  <label for="region">Region</label>
+  <select name="region" id="region" class="form-control">
+    <option >Select value</option>
+    {%for i in regions%}
+    <option value="{{i.id}}">{{i.pincode}}</option>
+    
+    {%endfor%}
+
+  </select>
+  <label for="item">Items</label>
+  <select name="items" id="item" class="form-control">
+    <option >Select item</option>
+    {%for i in item%}
+    <option value="{{i.id}}">{{i.name}}</option>
+    
+    {%endfor%}
+    
+  </select>
+  <br>
+  <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+
+</div>
+<div class="col-md-4">
+  
+</div>
+</div>
+{%endif%}
+{%endblock%}
